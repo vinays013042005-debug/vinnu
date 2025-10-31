@@ -1,17 +1,17 @@
 /* === Import Font === */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-/* === CSS Variables (Dark Blue Color Scheme) === */
+/* === CSS Variables (Color Scheme) === */
 :root {
-    --bg-color: #0F1D33;         /* Deep Midnight Blue Background */
-    --text-color: #F8F9FA;       /* Light Silver Text */
-    --accent-color: #4A90E2;     /* Vibrant Electric Blue Accent */
-    --highlight-color: #FFD700;  /* Warm Gold Highlight (High Contrast) */
-    --card-bg: #1A2E44;          /* Slightly lighter dark blue for cards */
-    --shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Darker shadow for contrast */
-    --light-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    --border-color: #2F455C;
-    --border-radius: 12px;
+    --bg-color: #FDFCFB;         /* Off-white background */
+    --text-color: #333333;       /* Dark grey text */
+    --accent-color: #0A4D2E;     /* Deep green accent */
+    --highlight-color: #C0A062;  /* Warm gold highlight */
+    --card-bg: #FFFFFF;          /* Pure white for cards */
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    --light-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    --border-color: #EAEAEA;
+    --border-radius: 12px;       /* Rounded corners for cards */
     --header-height: 70px;
 }
 
@@ -31,7 +31,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevents horizontal scroll */
     
     /* Page fade-in animation */
     opacity: 0;
@@ -43,7 +43,7 @@ body {
     to   { opacity: 1; }
 }
 
-/* === Dynamic Background Animation (Subtle Blue Shift) === */
+/* === Dynamic Background Animation === */
 .background-animation {
     position: fixed;
     top: 0;
@@ -51,9 +51,10 @@ body {
     width: 100%;
     height: 100vh;
     z-index: -1;
-    /* Subtle gradient shift within the dark blue range */
-    background: linear-gradient(300deg, var(--bg-color), #142840, var(--bg-color));
+    /* Subtle gradient with the accent color tint */
+    background: linear-gradient(300deg, var(--bg-color), #f0f4f2, var(--bg-color));
     background-size: 200% 200%;
+    /* The "buttery smooth" generative animation */
     animation: subtleGradient 20s ease infinite;
 }
 
@@ -71,13 +72,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 3rem; line-height: 1.2; }
-h2 { font-size: 2rem; margin-top: 1.5rem; color: var(--text-color);} /* H2 text is light silver */
-h3 { font-size: 1.25rem; color: var(--accent-color); font-weight: 600; }
+h2 { font-size: 2rem; margin-top: 1.5rem; }
+h3 { font-size: 1.25rem; color: var(--text-color); font-weight: 600; }
 p { margin-bottom: 1rem; }
 a { color: var(--accent-color); text-decoration: none; }
 
 .highlight {
-    color: var(--highlight-color); /* Gold highlight */
+    color: var(--highlight-color);
     font-weight: 700;
 }
 
@@ -88,8 +89,8 @@ a { color: var(--accent-color); text-decoration: none; }
     width: 100%;
     height: var(--header-height);
     z-index: 1000;
-    /* Darker frosted glass effect */
-    background: rgba(15, 29, 51, 0.85); 
+    /* Frosted glass effect */
+    background: rgba(253, 252, 251, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
@@ -106,7 +107,7 @@ nav {
 }
 
 .logo a {
-    color: var(--highlight-color); /* Gold logo */
+    color: var(--accent-color);
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -1px;
@@ -122,7 +123,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--text-color); /* Light silver links */
+    color: var(--accent-color);
     font-weight: 600;
     font-size: 0.95rem;
     padding: 0.5rem 0;
@@ -138,14 +139,14 @@ nav {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--accent-color); /* Blue underline */
+    background-color: var(--highlight-color);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .nav-links a:hover {
-    color: var(--accent-color);
+    color: #333;
 }
 .nav-links a:hover::after,
 .nav-links a.active::after {
@@ -153,7 +154,7 @@ nav {
 }
 
 .nav-links a.active {
-    color: var(--highlight-color); /* Gold for active link */
+    color: #333; /* Darker color for active link */
 }
 
 .burger {
@@ -164,7 +165,7 @@ nav {
 .burger div {
     width: 25px;
     height: 3px;
-    background-color: var(--text-color);
+    background-color: var(--accent-color);
     margin: 5px;
     transition: all 0.3s ease;
 }
@@ -180,7 +181,7 @@ footer {
     text-align: center;
     padding: 2rem;
     margin-top: 3rem;
-    color: #6a82a0; /* Muted blue-grey footer text */
+    color: #999;
     font-size: 0.9rem;
     border-top: 1px solid var(--border-color);
 }
@@ -204,15 +205,249 @@ footer {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    color: var(--text-color); /* H1 text is light silver */
 }
 
 .subtitle {
     font-size: 1.25rem;
-    color: #
+    color: #555;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.quote {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 2rem;
+}
+
+/* === Premium Button Styling === */
+.cta-button {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #FFF;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px; /* Pill shape */
+    font-weight: 600;
+    box-shadow: var(--light-shadow);
+    /* Physics-based transition */
+    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(10, 77, 46, 0.2);
+}
+
+.cta-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(10, 77, 46, 0.2);
+}
+
+/* === Resume & Contact Page Styling === */
+.resume-header,
+.contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.resume-header p,
+.contact-header p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.resume-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+/* === Scroll-Reveal Animation === */
+.hidden {
+    opacity: 0;
+    /* Start slightly lower */
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Resume Section Specifics */
+.work-item, .education-item, .project-item {
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px dashed var(--border-color);
+}
+.work-item:last-child,
+.education-item:last-child,
+.project-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.date-range {
+    font-style: italic;
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.work-item ul {
+    list-style-position: outside;
+    margin-left: 1.2rem;
+    color: #555;
+}
+
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-list h3 {
+    width: 100%;
+}
+
+.skills-list li {
+    background: #e6f0eb; /* Light green tint */
+    color: var(--accent-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.project-link {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* === Contact Form === */
+#contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #444;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(10, 77, 46, 0.1);
+}
+
+/* Form Validation Styling */
+#contact-form input.error,
+#contact-form textarea.error {
+    border-color: #D9534F;
+}
+#contact-form input.error:focus,
+#contact-form textarea.error:focus {
+     box-shadow: 0 0 0 3px rgba(217, 83, 79, 0.1);
+}
+
+#form-message {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+#form-message.success {
+    color: var(--accent-color);
+}
+#form-message.error {
+    color: #D9534F;
+}
+
+/* === Responsive (Mobile) Design === */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .hero-content h1 { font-size: 2.8rem; }
+    .subtitle { font-size: 1.1rem; }
+    
+    main {
+        padding: 0 1rem;
+        margin-top: 2rem;
+    }
+
+    .resume-card {
+        padding: 1.5rem;
+    }
+
+    /* Mobile Navigation */
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 60%;
+        background: var(--bg-color);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    .nav-links li {
+        margin: 2rem 0;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+    }
+
+    .burger {
+        display: block;
+        z-index: 1001; /* Above nav links */
+    }
+
+    /* Burger animation */
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
